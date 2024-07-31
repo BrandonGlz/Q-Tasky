@@ -1,0 +1,84 @@
+Notas de parche
+
+v4.1
+-Cambiar todos los metodos continuar() al final de cada caso Switch en vez de uno general. Esto evitará el doble "Presione Enter..."
+-Se cambió la opción "Salir" al número 9
+
+v4
+"En este punto el programa es estable si se usa a conciencia. No obstante hay muchos detalles que pulir. En la version 4 se tratara dejar lo mas contrafallos que se pueda"
+
+-Se reemplazó el método para pedir un ID de Desarrollador, Proyecto, equipo y tarea. Ahora guarda las posibles opciones en una lista y los compara
+
+
+
+v3.9
+-Cambios en la DB:
+	-En la tabla Usuario
+		-Se quitó el acento de todos los registros porque causa problemas en el inicio de sesión
+-En el módulo de Dev
+	-Se creó el método marcarAvance y dejarComentario en Tarea, y se implementó en las opciones del Dev
+-En Tablero
+	-Se creó los métodos calcularEstados y calcularAvance. Estos actualizan los números del tablero y el avance del proyecto cada vez que se crea o modifica el avance de una tarea
+-Se deben usar estos metodos de cálculo cada vez que se avanza en:
+	-Una tarea
+	cuando se agrega:
+	-Una tarea
+	o cuando se borra:
+	-Una tarea, un equipo, un Dev, 
+
+
+v3.8
+-Cambios en la DB:
+	-En avance:
+		-Se añadió el campo comentario
+	-En Tarea:
+		-Se le asignó un usuario a las tareas que tuvieran 50%
+-Al momento de crear un equipo, se debe crear su tablero
+-Al momento de crear una tarea, se debe crear  su avance con porcentaje en 0. También se debe recalcular el tablero
+-Al desasignar una tarea, su avance debe regresar a 0% y el usuario en la Tarea debe cambiar a 0. Lo mismo cuando se borra un Dev
+
+
+
+v3.7
+-Agregar actualización de n_Equipos para el Proyecto a la hora de crear o borrar un equipo.
+-Se terminó el módulo de Administrador
+
+v3.6
+-Cambios en la DB:
+	-En Avance:
+		-Actualizar las FK con ON DELETE CASCADE
+	-En Tarea:
+		-Se eliminó las 3 columnas de prioridad y se cambiaron por "prioridad" y "n_Prioridad". La primera dirá la prioridad en texto y la segunda en valor (Entre más alto el número, mayor la prioridad). Todo esto con el fin de mejorar el ordenamiento de las tareas
+-Hasta este punto, todas las opciones de Proyecto están completas
+
+v3.5
+-Cambios en la DB:
+	-En Usuario: 
+		-Se eliminó la columna equipo (Un usuario puede estar en varios equipos y puede causar problemas al eliminar un equipo)
+	-En Tarea:
+		-Se agregó la FK equipo, creador
+		-Se agregó el campo usuario
+	-En Equipo:
+		-Se agregó la FK proyecto
+-Se actualizaron todas las FK con la sentencia ON DELETE CASCADE (Para eliminar los registros completos en cascada, así si se elimina un proyecto, con él se eliminan sus equipos y tareas)
+-Se agrandaron los campos VARCHAR a 30
+
+-Se modificaron dichos campos en las clases del proyecto
+
+
+
+v3.4
+-Modulo Proyecto
+	Usar librería sql.Date para crear fechas actuales. Usar String para definir una fecha
+-Se arregló bug donde el Admin podía editar Devs de otro Admin 
+
+
+v3.3
+-Cada interfaz tiene su propia instancia de Usuario. Esto con el fin de diferenciar entre Admin y Dev
+
+-Se agregó el campo Id_Creador a Usuario en la DB y la Clase
+	Ahora se puede identificar quién creó el usuario
+
+-Se cambió el método limpiarPantalla() porque causaba problemas para imprimir registros de la DB
+
+-CRUD Desarrolladores listo (Falta asignación/desasignación de tareas)

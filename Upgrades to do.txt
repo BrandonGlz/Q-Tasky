@@ -1,0 +1,19 @@
+
+-Agreagar la opción de Tablero Kanban
+
+-Quitar los acentos de los nombres para crear usuarios y contraseñas
+
+-Hacer mas descriptivo el titulo del menu
+
+-En editar datos, sólo pedir el dato que quiere editar en vez de editar todos
+	se desplegará un menú de opciones y el usuario tiene que seleccionar qué editar. Después se usará un switch para entrar en esa opción y después se armará la Query
+
+-Crear una opción para asignar las tareas de golpe a los usuarios
+
+
+
+- (DONE) Al mostrar registros y pedir el ID, implementar una lista de ID's para comparar que esté en la lista. De no hacerlo, se puede seleccionar cualquier ID y causa problemas.
+
+- (DONE) Solucionar doble "Presiona Enter para continuar"
+
+- (DONE) Cambiar el numero de salir por el numero 9 para hacer el standar
